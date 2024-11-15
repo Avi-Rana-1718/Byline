@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer {
+    body {
+        @apply p-4 bg-[#2C0D62] text-[#EAE7EF] caret-[#88909d];
+    }
+}

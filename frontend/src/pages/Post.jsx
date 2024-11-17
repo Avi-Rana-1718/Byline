@@ -24,14 +24,26 @@ export default function Post() {
     return (
         <>
         <Nav />
-        <div className="px-[20vw] p-5">
-            <h3 className="text-3xl">{data.title}</h3>
-            <span className="block m-2 mb-0 text-[#c2b8b8]">{data.byline}</span>
-            <time className="text-xs text-[#888] m-2 mb-1">{new Date(data.postedAt).getDate()+"th "+ (new Date(2024, new Date(data.postedAt).getMonth(), 1).toLocaleString('default', { month: 'long' })) +" " + new Date(data.postedAt).getFullYear()}</time>
+        <div className="p-5 flex justify-center">
+            <div className="w-[50vw]">
+                <div>
+                <h3 className="text-3xl font-bold">{data.title}</h3>
+                <span className="block m-2 mb-0 text-[#c2b8b8]">{data.byline}</span>
+                <time className="text-xs text-[#888] m-2 mb-1">{new Date(data.postedAt).getDate()+"th "+ (new Date(2024, new Date(data.postedAt).getMonth(), 1).toLocaleString('default', { month: 'long' })) +" " + new Date(data.postedAt).getFullYear()}</time>
+                </div>
+                <div className="flex flex-row justify-end">
+                    <div>
+                    <button className="border-[#583d85] hover:underlne hover:bg-[#583d85] border-2 rounded-full px-2 py-1">
+                        Share
+                    </button>
+                    </div>
+                </div>
+            <hr className="my-4 border-t-[#888]"/>
             <p 
             className="mt-5"
             dangerouslySetInnerHTML={{__html: data.content}}
             ></p>
+            </div>
         </div>
         </>
     )

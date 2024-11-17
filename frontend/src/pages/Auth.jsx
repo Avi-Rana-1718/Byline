@@ -1,12 +1,16 @@
 import { useState } from "react";
-import { redirect } from "react-router-dom";
+import { Navigate, redirect, useNavigate } from "react-router-dom";
+import Nav from "../_components/Nav";
 
 export default function Auth() {
+    let navigate = useNavigate();
     const [signUp, setSignUp] = useState(true);
     return (
-        <div className="flex justify-center items-center h-screen">
+        <>
+        <Nav />
+        <div className="flex flex-row justify-center">
+        <div className="bg-[#FCFCFC] text-[#282828] p-8 rounded inline-block">
             <form
-            className="gap-3 bg-[#FCFCFC] text-[#282828] p-8 rounded inline-block"
             onSubmit={(e)=>{
                 e.preventDefault();
 
@@ -38,7 +42,7 @@ export default function Auth() {
                     console.log(data);
                     if(data.status=="SUCCESS" && !signUp) {
                         localStorage.setItem("userID", data.data.userID);
-                        return redirect("/user/"+userObj.userID);
+                        return navigate("/user/"+ data.data.userID, {replace:true});
                     }
                     
                 })
@@ -57,7 +61,7 @@ export default function Auth() {
                 disabled={!signUp} 
                 autoFocus={signUp}
                 placeholder="SpongeBob189"
-                className="block text-[#0F0F0F] bg-[#E8F0FE] px-4 py-2 rounded-sm my-2 outline-2 focus:outline-[#88909d] disabled:hidden"
+                className="block text-[#0F0F0F] w-[20vw] bg-[#E8F0FE] px-4 py-2 rounded-sm my-2 outline-2 focus:outline-[#88909d] disabled:hidden"
                 />
                 <label htmlFor="email">Email<span className="text-red-500">*</span></label>
                 <input 
@@ -65,25 +69,29 @@ export default function Auth() {
                 id="email"
                 autoFocus={!signUp}
                 placeholder="starfish@pants.com" 
-                className="block text-[#0F0F0F] bg-[#E8F0FE] px-4 py-2 outline-2 focus:outline-[#88909d] rounded-sm my-2 focus:outline-none"
+                className="block text-[#0F0F0F] w-[20vw] bg-[#E8F0FE] px-4 py-2 outline-2 focus:outline-[#88909d] rounded-sm my-2 focus:outline-none"
                 />
                 <label htmlFor="password">Password<span className="text-red-500">*</span></label>
                 <input 
                 type="password" 
                 id="password"
                 placeholder="seacert"
-                className="block text-[#0F0F0F] bg-[#E8F0FE] px-4 py-2 outline-2 focus:outline-[#88909d] rounded-sm my-2 focus:outline-none"
+                className="block text-[#0F0F0F] w-[20vw] bg-[#E8F0FE] px-4 py-2 outline-2 focus:outline-[#88909d] rounded-sm my-2 focus:outline-none"
                 />
-                <input 
-                type="submit"
+            <input
+            type="submit"
                 className="bg-[#2e405f] hover:underline cursor-pointer text-white px-2 py-1 rounded inline-block"
-                />
-                <button
-                className="text-sm ml-4"
-                onClick={()=>{
-                    setSignUp(!signUp)
-                }}>{(signUp)?"Already have an account?":"Create a new account!"}</button>
+            />
             </form>
+            <button
+            type="button"
+            className="text-sm mt-2"
+            onClick={()=>{
+                setSignUp(!signUp)
+            }}>{(signUp)?"Already have an account?":"Create a new account!"}
+            </button>
         </div>
+        </div>
+    </>
     )
 }

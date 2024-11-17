@@ -11,7 +11,7 @@ import New from './pages/New.jsx'
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <Index />,
   },
   {
     path: "/auth",

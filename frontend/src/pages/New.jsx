@@ -1,8 +1,20 @@
+import { useRef, useState } from "react";
+import Nav from "../_components/Nav";
+
 export default function New() {
 
+    const [title, setTitle] = useState("");
+    const [byline, setByline] = useState("");
+    const [content, setContent] = useState("");
+
+    const inputRef=useRef(null);
+
     return (
+        <>
+        <Nav />
+        <div className="px-[20vw] p-5 flex gap-x-4 justify-center">
         <form 
-        className="flex flex-col bg-[#FCFCFC] text-[#282828] p-8 rounded "
+        className="flex flex-col bg-[#FCFCFC] text-[#282828] p-6 rounded"
         onSubmit={(e)=>{
             e.preventDefault();
             console.log(e.target);
@@ -35,6 +47,10 @@ export default function New() {
             <input 
             type="text" 
             name="title"
+            onChange={(e)=>{
+                setTitle(e.target.value);
+                
+            }}
             placeholder="Blog #171 - I got a new bike!"
             className="block text-[#0F0F0F] bg-[#E8F0FE] px-4 py-2 rounded-sm my-2 outline-2 focus:outline-[#88909d] disabled:hidden"
             />
@@ -44,6 +60,9 @@ export default function New() {
             name="byline"
             placeholder="New bike, new ME!"
             className="block text-[#0F0F0F] bg-[#E8F0FE] px-4 py-2 rounded-sm my-2 outline-2 focus:outline-[#88909d] disabled:hidden"
+            onChange={(e)=>{
+                setByline(e.target.value);
+            }}
             />
             <label htmlFor="data">Data<span className="text-red-500">*</span></label>
             <textarea 
@@ -52,11 +71,28 @@ export default function New() {
             rows={4}
             placeholder="Hello guys! I just bought my dream bike."
             className="block text-[#0F0F0F] bg-[#E8F0FE] px-4 py-2 rounded-sm my-2 outline-2 focus:outline-[#88909d] disabled:hidden"
+            onChange={(e)=>{
+                setContent(e.target.value);
+            }}
             ></textarea>
             <input
             type="submit"
             className="bg-[#2e405f] hover:underline cursor-pointer text-white px-2 py-1 rounded inline-block"
             />
         </form>
+
+        <div
+        className="flex flex-col bg-[#FCFCFC] text-[#282828] p-6 rounded ">
+        <h3 className="text-2xl font-medium mb-4">
+             Preview
+        </h3>
+        <h5>{title}</h5>
+        <span className="text-sm">{byline}</span>
+        <p dangerouslySetInnerHTML={{__html: content}}>
+        </p>
+        </div>
+
+        </div>
+        </>
     )
 }

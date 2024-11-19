@@ -11,8 +11,8 @@ export default function Nav() {
     })
 
     return (
-        <nav className="mb-4 flex justify-between items-center">
-            <h1 className="text-2xl font-['FacultyGlyphic'] hover:underline">
+        <nav className="mb-4 p-4 flex justify-between items-center">
+            <h1 className="text-2xl font-['Faculty_Glyphic'] hover:underline">
                 <Link to="/">
                     Byline
                 </Link>

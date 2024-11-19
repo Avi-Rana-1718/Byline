@@ -1,16 +1,28 @@
-import Nav from "../_components/Nav"
+import { Link } from "react-router-dom";
+import Nav from "../_components/Nav";
 
 function Index() {
-
-
   return (
     <>
-    <Nav />
-    <div className="flex justify-center">
-
-    </div>
+      <Nav />
+      <div>
+        <header className="flex h-screen items-center justify-center">
+          <div className="text-center">
+            <h3 className="text-3xl font-medium">Words worth</h3>
+            <h3 className="bg-300% pb-4 animate-gradient text-transparent bg-clip-text bg-gradient-to-r from-[#915fe7] via-blue-500 to-green-200 text-6xl font-medium">
+              reading
+            </h3>
+            <button className="bg-[#6740aa] mt-4 hover:underline cursor-pointer text-white px-3 py-2 rounded inline-block text-xl">
+              <Link to="/auth">Get Started!</Link>
+            </button>
+          </div>
+        </header>
+        <div className="bg-[#EAE7EF] p-4">
+          <h4></h4>
+        </div>
+      </div>
     </>
-  )
+  );
 }
 
-export default Index
+export default Index;

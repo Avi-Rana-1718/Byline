@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Navigate, redirect, useNavigate } from "react-router-dom";
 import Nav from "../_components/Nav";
 
 export default function Auth() {
     let navigate = useNavigate();
     const [signUp, setSignUp] = useState(true);
+
+    useEffect(()=>{
+        if(localStorage.getItem("user")) {
+            return navigate("/user/"+JSON.parse(localStorage.getItem("user")).userID, {replace:true});
+        }
+    }, [])
+
     return (
         <>
         <Nav />
@@ -41,7 +48,7 @@ export default function Auth() {
                 }).then(res=>res.json()).then(data=>{
                     console.log(data);
                     if(data.status=="SUCCESS" && !signUp) {
-                        localStorage.setItem("userID", data.data.userID);
+                        localStorage.setItem("user", JSON.stringify(data.data));
                         return navigate("/user/"+ data.data.userID, {replace:true});
                     }
                     

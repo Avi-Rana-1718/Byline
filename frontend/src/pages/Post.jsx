@@ -5,16 +5,12 @@ import ShareBtn from "../_components/ShareBtn";
 
 export default function Post() {
     const [data, setData] = useState(null);
-    const params = useParams();
-    console.log("http://localhost:3030/post/get?id="+params.id);
-    
+    const params = useParams(); 
 
     useEffect(()=>{
         fetch("http://localhost:3030/post/get?id="+params.id).then(res=>res.json()).then(data=>{
             setData(data.data)
-            console.log(data.data);
-            
-        })
+    })
     }, [])
 
     if(data==null) {

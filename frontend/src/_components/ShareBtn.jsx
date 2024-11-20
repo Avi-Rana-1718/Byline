@@ -16,11 +16,25 @@ export default function ShareBtn() {
         <ul
         className={`bg-[#EAE7EF] mt-[2px] p-2  text-[#282828] rounded flex flex-col absolute gap-y-1`}
         >
-            <li className="p-2 hover:bg-[#d6d4d4] hover:underline cursor-pointer rounded ">Copy link</li>
-            <li className="p-2 hover:bg-[#d6d4d4] hover:underline cursor-pointer rounded ">Share to WhatsApp</li>
-            <li className="p-2 hover:bg-[#d6d4d4] hover:underline cursor-pointer rounded ">Share to Twitter</li>
-            <li className="p-2 hover:bg-[#d6d4d4] hover:underline cursor-pointer rounded ">Share to LinkedIn</li>
-        </ul>
+            <li 
+            className="p-2 hover:bg-[#d6d4d4] hover:underline cursor-pointer rounded"
+            onClick={(e)=>{
+                navigator.clipboard.writeText(window.location.href);
+                e.target.innerHTML = "Copied!"
+                
+            }}
+            >Copy link</li>
+            <li 
+            className="p-2 hover:bg-[#d6d4d4] hover:underline cursor-pointer rounded"
+            onClick={()=>{
+                navigator.share({
+                    title: document.title,
+                    text: 'Hello World',
+                    url: window.location.href,
+                  });
+            }}
+            >Share</li>
+            </ul>
         </div>
         </>
     )

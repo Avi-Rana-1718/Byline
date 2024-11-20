@@ -27,8 +27,6 @@ export default function TimelineList({data}) {
     <ul className="m-4 flex flex-col">
         {
         posts.map((el, index)=>{
-            console.log(posts);
-            
             let isNewYear = index==0||Number(new Date(el.postedAt).getFullYear())!=Number(new Date(posts[index-1].postedAt).getFullYear());
             
             return (

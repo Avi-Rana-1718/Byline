@@ -11,11 +11,13 @@ const userRoutes = require("./routes/userRoutes")
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-app.use(cors())
+app.use(cors({
+    credentials: true
+}))
 app.use(session({
     secret: 'your-secret-key',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: true
 }))
 
 app.use("/auth", authRoutes);

@@ -11,6 +11,8 @@ router.post("/signup" , async (req, res)=>{
 router.post("/login", async (req, res)=>{
     let response = await authUser(req.body)
     req.session.auth = response.data;
+    console.log(req.session);
+    
     res.json(response);
 })
 router.get("/delete", async (req, res)=>{
@@ -18,9 +20,9 @@ router.get("/delete", async (req, res)=>{
 })
 router.get("/verify", async (req, res)=>{
     if(req.session.auth) {
-        res.json({status:"SUCCESS", data: req.session.auth});
+        res.json({status:"SUCCESS-Login", data: req.session.auth});
     } else {
-        res.json({status:"ERROR", message: "User not authenticated!"});
+        res.json({status:"ERROR", message: "Verify User not authenticated!"});
     }
 })
 

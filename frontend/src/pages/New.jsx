@@ -12,7 +12,7 @@ export default function New() {
     return (
         <>
         <Nav />
-        <div className="px-[20vw] p-5 flex gap-x-4 justify-center">
+        <div className="md:px-[20vw] p-5 md:flex gap-x-4 justify-center">
         <form 
         className="flex flex-col bg-[#FCFCFC] text-[#282828] p-6 rounded"
         onSubmit={(e)=>{

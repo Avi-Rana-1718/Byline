@@ -8,8 +8,8 @@ export default function Auth() {
     return (
         <>
         <Nav />
-        <div className="flex flex-row justify-center">
-        <div className="bg-[#FCFCFC] text-[#282828] p-8 rounded inline-block">
+        <div className="flex flex-row justify-center items-center">
+        <div className="block w-full mx-5 bg-[#FCFCFC] text-[#282828] p-8 rounded md:inline-block md:w-auto">
             <form
             onSubmit={(e)=>{
                 e.preventDefault();

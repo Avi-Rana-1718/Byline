@@ -21,7 +21,7 @@ export default function Profile() {
     return (
         <>
         <Nav />
-        <div className="px-[20vw] p-5">
+        <div className="md:px-[20vw] p-5">
             <div className="flex">
                 <img
                 className="h-[10rem] rounded mr-5" 

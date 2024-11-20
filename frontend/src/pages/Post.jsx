@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import Nav from "../_components/Nav";
+import ShareBtn from "../_components/ShareBtn";
 
 export default function Post() {
     const [data, setData] = useState(null);
@@ -25,7 +26,7 @@ export default function Post() {
         <>
         <Nav />
         <div className="p-5 flex justify-center">
-            <div className="w-[50vw]">
+            <div className="md:w-[50vw]">
                 <div>
                 <h3 className="text-3xl font-bold">{data.title}</h3>
                 <span className="block m-2 mb-0 text-[#c2b8b8]">{data.byline}</span>
@@ -33,9 +34,7 @@ export default function Post() {
                 </div>
                 <div className="flex flex-row justify-end">
                     <div>
-                    <button className="border-[#583d85] hover:underlne hover:bg-[#583d85] border-2 rounded-full px-2 py-1">
-                        Share
-                    </button>
+                    <ShareBtn />
                     </div>
                 </div>
             <hr className="my-4 border-t-[#888]"/>

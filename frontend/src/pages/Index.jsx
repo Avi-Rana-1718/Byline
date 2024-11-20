@@ -13,12 +13,14 @@ function Index() {
               reading
             </h3>
             <button className="bg-[#6740aa] mt-4 hover:underline cursor-pointer text-white px-3 py-2 rounded inline-block text-xl">
-              <Link to="/auth">Get Started!</Link>
+              <Link to="/auth">Get Started<i class="fa-solid fa-circle-arrow-right ml-2"></i></Link>
             </button>
           </div>
         </header>
         <div className="bg-[#EAE7EF] p-4">
-          <h4></h4>
+          <h4>
+            
+          </h4>
         </div>
       </div>
     </>

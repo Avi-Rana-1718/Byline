@@ -10,7 +10,7 @@ export default function Dropdown({title, list}) {
         onClick={()=>{setIsOpen(!isOpen)}}
         >
             {title}
-            <i class="fa-solid fa-caret-down ml-2"></i>
+            <i className="fa-solid fa-caret-down ml-2"></i>
         </button>
         <div className={`absolute right-20 ${isOpen?"block":"hidden"}`}>
             <span className={`inline leading-none w-0 h-0 border-l-[15px] border-l-transparent border-b-[9px] border-b-[#EAE7EF] border-r-[0px] border-r-transparent`}
@@ -22,6 +22,7 @@ export default function Dropdown({title, list}) {
                 list.map(el=>{
                    return( 
                    <li 
+                   key={el.title}
                     className="hover:bg-[#d6d4d4] hover:underline cursor-pointer rounded">
                         <Link className="px-2 py-1 block" to={el.href}>
                         {el.title}

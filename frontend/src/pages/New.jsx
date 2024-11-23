@@ -17,14 +17,14 @@ export default function New() {
         <h3 className="text-2xl font-medium mb-4">
                 Post
         </h3>
-        <div disabled={status==null} className={"block rounded bg-[#34435e] mb-4 p-4 disabled:hidden disabled:bg-transparent"}>
+        <div disabled={status==null?true:false} className="block rounded bg-[#34435e] mb-4 p-4 disabled:hidden">
             {(status!=null)?(status.status):null}
             <small>{(status!=null)?(status.message):null}</small>
         </div>
         <div className="md:flex gap-x-5">
         <form 
         className="flex flex-col grow bg-[#FCFCFC] text-[#282828] p-6 rounded"
-        onSubmit={(e)=>{
+        onSubmit={(e)=>{-
             e.preventDefault();
             setStatus(null);
             

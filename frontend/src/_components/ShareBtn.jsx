@@ -11,7 +11,7 @@ export default function ShareBtn() {
             Share
         </button>
         <div className={`md:ml-5 ${isList?"block":"hidden"}`}>
-            <span className={`inline leading-none w-0 h-0  border-l-[0px] border-l-transparent border-b-[9px] border-b-[#EAE7EF] border-r-[15px] border-r-transparent`}
+            <span className={`inline leading-none w-0 h-0 border-l-[0px] border-l-transparent border-b-[9px] border-b-[#EAE7EF] border-r-[15px] border-r-transparent`}
             ></span>
         <ul
         className={`bg-[#EAE7EF] mt-[2px] p-2  text-[#282828] rounded flex flex-col absolute gap-y-1`}

@@ -26,7 +26,7 @@ export default function Auth() {
                     email: e.target[1].value,
                     password: e.target[2].value,
                     createdAt: Date.now(),
-                    userPfp: null,
+                    userPfp: "https://i.pinimg.com/736x/b9/c4/7e/b9c47ef70bff06613d397abfce02c6e7.jpg",
                     userID: Math.floor(Math.random() * (999999999 - 111111111) + 111111111),
                     posts:[]
                 }
@@ -50,6 +50,10 @@ export default function Auth() {
                     if(data.status=="SUCCESS" && !signUp) {
                         localStorage.setItem("user", JSON.stringify(data.data));
                         return navigate("/user/"+ data.data.userID, {replace:true});
+                    } else if(data.status=="ERROR") {
+                        alert(data.message)
+                    } else {
+                        alert("Created new user!")
                     }
                     
                 })
@@ -65,6 +69,7 @@ export default function Auth() {
                 >Username<span className="text-red-500">*</span></label>
                 <input 
                 id="username" 
+                required
                 disabled={!signUp} 
                 autoFocus={signUp}
                 placeholder="SpongeBob189"
@@ -74,6 +79,7 @@ export default function Auth() {
                 <input 
                 type="email" 
                 id="email"
+                required
                 autoFocus={!signUp}
                 placeholder="starfish@pants.com" 
                 className="block text-[#0F0F0F] w-[20vw] bg-[#E8F0FE] px-4 py-2 outline-2 focus:outline-[#88909d] rounded-sm my-2 focus:outline-none"
@@ -82,6 +88,7 @@ export default function Auth() {
                 <input 
                 type="password" 
                 id="password"
+                required
                 placeholder="seacert"
                 className="block text-[#0F0F0F] w-[20vw] bg-[#E8F0FE] px-4 py-2 outline-2 focus:outline-[#88909d] rounded-sm my-2 focus:outline-none"
                 />

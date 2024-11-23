@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Dropdown from "./Dropdown";
 
 export default function Nav() {
     const [isLoggedIn, setLoggedIn] = useState(localStorage.getItem("user"));
@@ -12,9 +13,10 @@ export default function Nav() {
                     Byline
                 </Link>
             </h1>
-            <div>
+            {isLoggedIn?(
+                <div>
                 <span className="mr-2">
-                    {(isLoggedIn)?(<Link to={"/user/" + JSON.parse(isLoggedIn).userID}>{JSON.parse(isLoggedIn).username}</Link>):(<Link className="hover:underline" to="/auth">Login</Link>)}
+                    <Dropdown title={JSON.parse(isLoggedIn).username} list={[{title:"Profile", href:`/user/${JSON.parse(localStorage.getItem("user")).userID}`}, {title:"Setting", href:"/setting"}]}/>
                 </span>
                 <button
                 className="bg-[#EAE7EF]  text-[#2C0D62] px-2 py-1 rounded hover:underline">
@@ -23,6 +25,7 @@ export default function Nav() {
                 </Link>
                 </button>
             </div>
+            ):<Link className="hover:underline" to="/auth">Login</Link>}
         </nav>
     )
 }

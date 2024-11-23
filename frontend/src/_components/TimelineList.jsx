@@ -18,7 +18,7 @@ export default function TimelineList({data}) {
             });
       
             const fetchedPosts = await Promise.all(promises);
-            setPost(fetchedPosts);
+            setPost(fetchedPosts.reverse());
           };
       
           fetchPosts();

@@ -21,8 +21,8 @@ export default function Post() {
     return (
         <>
         <Nav />
-        <div className="p-5 flex justify-center">
-            <div className="md:w-[50vw]">
+        <div className="md:px-[20vw]">
+            <div>
                 <div>
                 <h3 className="text-3xl font-bold">{data.title}</h3>
                 <span className="block m-2 mb-0 text-[#c2b8b8]">{data.byline}</span>

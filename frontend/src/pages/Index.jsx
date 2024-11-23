@@ -17,10 +17,10 @@ function Index() {
             </button>
           </div>
         </header>
-        <div className="bg-[#EAE7EF] p-4">
-          <h4>
-            
-          </h4>
+        <div className="bg-[#EAE7EF] text-[#282828] p-8 text-center">
+          <h4 className="text-xl font-medium">Share your thoughts with ease</h4>
+          <small className="text-[#888]">Blogging made easy</small>
+          
         </div>
       </div>
     </>

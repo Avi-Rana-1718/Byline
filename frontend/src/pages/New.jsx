@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import Nav from "../_components/Nav";
+import Footer from "../_components/Footer";
 
 export default function New() {
 
@@ -12,12 +13,11 @@ export default function New() {
     return (
         <>
         <Nav />
-
         <div className="md:px-[20vw] p-5">
         <h3 className="text-2xl font-medium mb-4">
                 Post
         </h3>
-        <div disabled={status==null?true:false} className="block rounded bg-[#34435e] mb-4 p-4 disabled:hidden">
+        <div className={"block rounded bg-[#34435e] mb-4 p-4 " + (status==null?"hidden":"block")}>
             {(status!=null)?(status.status):null}
             <small>{(status!=null)?(status.message):null}</small>
         </div>
@@ -100,8 +100,8 @@ export default function New() {
         </p>
         </div>
         </div>
-
         </div>
+        <Footer />
         </>
     )
 }

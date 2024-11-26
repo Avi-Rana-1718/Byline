@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Navigate, redirect, useNavigate } from "react-router-dom";
 import Nav from "../_components/Nav";
+import Footer from "../_components/Footer";
 
 export default function Auth() {
     let navigate = useNavigate();
@@ -106,6 +107,7 @@ export default function Auth() {
             </button>
         </div>
         </div>
+        <Footer />
     </>
     )
 }

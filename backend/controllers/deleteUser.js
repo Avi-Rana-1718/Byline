@@ -1,5 +1,5 @@
 const {MongoClient, ObjectId} = require("mongodb");
-const URL = "mongodb+srv://avirana3449:wBnxTbZxPcJrH2zw@cluster0.lgdme.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const URL = process.env.CONNECTION_URL;
 
 async function deleteUser(id) {
     try {

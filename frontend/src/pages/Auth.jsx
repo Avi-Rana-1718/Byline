@@ -6,6 +6,7 @@ import Footer from "../_components/Footer";
 export default function Auth() {
     let navigate = useNavigate();
     const [signUp, setSignUp] = useState(true);
+    const [status, setStatus] = useState(null);
 
     useEffect(()=>{
         if(localStorage.getItem("user")) {
@@ -16,7 +17,7 @@ export default function Auth() {
     return (
         <>
         <Nav />
-        <div className="flex flex-row justify-center items-center">
+        <div className="flex flex-row justify-center items-center h-[80vh]">
         <div className="block w-full mx-5 bg-[#FCFCFC] text-[#282828] p-8 rounded md:inline-block md:w-auto">
             <form
             onSubmit={(e)=>{
@@ -52,9 +53,9 @@ export default function Auth() {
                         localStorage.setItem("user", JSON.stringify(data.data));
                         return navigate("/user/"+ data.data.userID, {replace:true});
                     } else if(data.status=="ERROR") {
-                        alert(data.message)
+                        setStatus([false, data.message])
                     } else {
-                        alert("Created new user!")
+                        setStatus([true, "Created new user!"])
                     }
                     
                 })
@@ -64,6 +65,10 @@ export default function Auth() {
                 <h3 className="text-2xl font-medium mb-4">
                     {(signUp)?"Signup":"Login"}
                 </h3>
+                <div className={`text-xs p-3 ${status!=null?status[0]?"bg-[#27FF82]":"bg-[#ec7979]":null}] rounded mb-3 disabled:opacity-0`}>
+                    <h5 className="underline text-sm mb-1">{status?(status[0]?"SUCCESS":"ERROR"):null}</h5>
+                    <i class="fa-solid fa-circle-info mr-1"></i>{status?status[1]:null}
+                </div>
                 <label 
                 htmlFor="username" 
                 className={signUp?"block":"hidden"}

@@ -13,7 +13,7 @@ async function authUser(userObj) {
             delete accountExists.password;
             return {status: "SUCCESS", data: accountExists};
         } else {
-            return {status: "ERROR", message: "Unabel to find user with the provided credentials!"}
+            return {status: "ERROR", message: "Unable to find user with the provided credentials!"}
         }
     } catch (err) {
         console.log(err);

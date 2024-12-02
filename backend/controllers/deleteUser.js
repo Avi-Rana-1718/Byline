@@ -7,8 +7,9 @@ async function deleteUser(id) {
         await client.connect();
         let db = client.db("twitter");
         let collection = db.collection("userData");
-           
-        let accountExists = await collection.deleteOne({id: id});
+        console.log(id);
+        
+        let accountExists = await collection.deleteOne({userID: Number(id)});
 
         console.log(accountExists);
         

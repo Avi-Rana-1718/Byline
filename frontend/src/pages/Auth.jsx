@@ -56,6 +56,7 @@ export default function Auth() {
                         setStatus([false, data.message])
                     } else {
                         setStatus([true, "Created new user!"])
+                        setSignUp(false)
                     }
                     
                 })

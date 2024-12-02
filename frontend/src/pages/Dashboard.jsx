@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Nav from "../_components/Nav";
 import TimelineItem from "../_components/TimelineItem";
+import ListItem from "../_components/ListItem";
 
 export default function Dashboard() {
     const [posts, setPosts] = useState([]);
@@ -18,6 +19,8 @@ export default function Dashboard() {
           
                 const fetchedPosts = await Promise.all(promises);
                 setPosts(fetchedPosts.reverse());
+                console.log(posts);
+                
               };
           
               fetchPosts();
@@ -32,15 +35,17 @@ export default function Dashboard() {
             <div className="flex gap-x-2">
             <section className="grow bg-[#FCFCFC] text-[#282828] p-4 rounded">
             <h3 className="text-xl underline">Posts</h3>
-                <ul>
+                <ul className="mt-3">
                     {posts.length!=0?(posts.map(el=>{
-                            return <TimelineItem title={el.title} byline={el.byline} time={el.postedAt}/>
+                            return <ListItem title={el.title} subtitle={el.byline} time={el.postedAt} link={"/post/" + el.postID}/>
                     })):null}
                 </ul>
             </section>
+            <section>
             <div className="bg-[#FCFCFC] text-[#282828] p-4 rounded">
             <i class="fa-solid fa-circle-user mr-1"></i>Logged in as {JSON.parse(localStorage.getItem("user")).username}
             </div>
+            </section>
             </div>
         </div>
       </>

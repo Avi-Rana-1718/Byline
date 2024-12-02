@@ -36,7 +36,7 @@ export default function TimelineList({data}) {
                     {(isNewYear)?(new Date(el.postedAt).getFullYear()):null}
                 </h3>
                 <li>
-                    <Link to={"/post/" + el.postID} className="flex">
+                    <Link to={"/post/" + el.postID} className="flex flex-row">
                     <span className="ml-2 border-l-2  border-[#656565] p-2"></span>
                     <TimelineItem title={el.title} byline={el.byline} time={el.postedAt} />
                     </Link>

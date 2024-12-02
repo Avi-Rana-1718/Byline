@@ -3,7 +3,6 @@ const router = express.Router();
 
 const createUser = require("../controllers/createUser");
 const authUser = require("../controllers/authUser");
-const deleteUser = require("../controllers/deleteUser")
 
 router.post("/signup" , async (req, res)=>{
     res.json(await createUser(req.body))
@@ -14,9 +13,6 @@ router.post("/login", async (req, res)=>{
     console.log(req.session);
     
     res.json(response);
-})
-router.get("/delete", async (req, res)=>{
-    res.json(await deleteUser(req.query.id));
 })
 router.get("/verify", async (req, res)=>{
     if(req.session.auth) {

@@ -1,7 +1,4 @@
-**Byline: A Minimalist Blogging Platform**
-
-**Overview**
-
+# Byline
 Byline is a streamlined blogging platform designed for effortless content creation and sharing. It offers a clean, intuitive interface with essential features to help you focus on your writing. 
 
 **Key Features:**

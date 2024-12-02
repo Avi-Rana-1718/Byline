@@ -66,7 +66,7 @@ export default function Auth() {
                 <h3 className="text-2xl font-medium mb-4">
                     {(signUp)?"Signup":"Login"}
                 </h3>
-                <div className={`text-xs p-3 ${status!=null?status[0]?"bg-[#27FF82]":"bg-[#ec7979]":null}] rounded mb-3 disabled:opacity-0`}>
+                <div className={`text-xs p-3 ${status!=null?status[0]?"bg-[#27FF82]":"bg-[#ec7979]":null}] rounded mb-3 ${status==null?"hidden":"block"}`}>
                     <h5 className="underline text-sm mb-1">{status?(status[0]?"SUCCESS":"ERROR"):null}</h5>
                     <i class="fa-solid fa-circle-info mr-1"></i>{status?status[1]:null}
                 </div>

@@ -53,7 +53,7 @@ export default function Profile() {
             </small>
           </div>
           <div>
-          <div className={`border-[#583d85]  text-sm cursor-pointer block hover:underlne hover:bg-[#583d85] border-2 rounded-full px-2 py-1 ${localStorage.getItem("user")?JSON.parse(localStorage.getItem("user")).userID == Number(params.id) ? "block":"hidden":"hidden"}`}>
+          <div className={`border-[#583d85] whitespace-nowrap text-sm cursor-pointer block hover:underlne hover:bg-[#583d85] border-2 rounded-full px-2 py-1 ${localStorage.getItem("user")?JSON.parse(localStorage.getItem("user")).userID == Number(params.id) ? "block":"hidden":"hidden"}`}>
             <Link to="/setting">
             Edit profile
             </Link>

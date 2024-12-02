@@ -34,7 +34,8 @@ export default function New() {
                 byline: e.target[1].value,
                 content: e.target[2].value,
                 postedAt: Date.now(),
-                postID: Math.floor(Math.random() * (999999999 - 111111111) + 111111111)
+                postID: Math.floor(Math.random() * (999999999 - 111111111) + 111111111),
+                comments: []
             }
 
             fetch("http://localhost:3030/post/add", {
@@ -72,7 +73,7 @@ export default function New() {
                 setByline(e.target.value);
             }}
             />
-            <label htmlFor="data">Data<span className="text-red-500">*</span></label>
+            <label htmlFor="data">Content<span className="text-red-500">*</span></label>
             <textarea 
             type="text" 
             required

@@ -23,7 +23,7 @@ export default function Post() {
   return (
     <>
       <Nav />
-      <div className="md:px-[20vw]">
+      <div className="md:px-[20vw] p-4">
         <div>
           <div>
             <h3 className="text-3xl font-bold">{data.title}</h3>

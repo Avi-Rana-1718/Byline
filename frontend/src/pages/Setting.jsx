@@ -10,8 +10,8 @@ export default function Setting() {
       <Nav />
       <div className="md:px-[20vw] p-5">
         <h3 className="text-2xl font-medium mb-4">Setting</h3>
-        <div className="flex gap-x-2">
-          <ul>
+        <div className="md:flex gap-x-2">
+          <ul className="mb-4">
             <li
             className="hover:bg-[#d6d4d4] mb-1 px-2 py-1 bg-[#EAE7EF] text-[#282828] hover:underline cursor-pointer rounded"
             onClick={()=>{

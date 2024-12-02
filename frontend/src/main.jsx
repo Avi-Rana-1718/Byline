@@ -8,6 +8,7 @@ import Auth from './pages/Auth.jsx'
 import Post from './pages/Post.jsx'
 import New from './pages/New.jsx'
 import Setting from './pages/Setting.jsx'
+import Dashboard from './pages/Dashboard.jsx'
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/new",
     element: <New />
+  },
+  {
+    path:"/dashboard",
+    element: <Dashboard />
   },
   {
     path: "/setting",

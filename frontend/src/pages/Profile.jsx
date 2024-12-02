@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import TimelineList from "../_components/TimelineList";
 import Nav from "../_components/Nav";
 import Footer from "../_components/Footer";
@@ -26,7 +26,7 @@ export default function Profile() {
             className="h-[10rem] rounded mr-5"
             src={data != null ? data.userPfp : null}
           />
-          <div>
+          <div className="grow">
             <h2 className="text-3xl font-medium">
               {data == null ? "Loading" : data.username}
             </h2>
@@ -51,6 +51,9 @@ export default function Profile() {
                 ? "No posts yet!"
                 : `${data.posts.length} posts.`}
             </small>
+          </div>
+          <div className={localStorage.getItem("user")?JSON.parse(localStorage.getItem("user")).userID == Number(params.id) ? "block":"hidden":"hidden"}>
+            <Link to="/setting"><i class="fa-solid fa-gear"></i></Link>
           </div>
         </div>
         <div className="mt-5">

@@ -16,11 +16,11 @@ app.use(express.urlencoded({extended:true}))
 app.use(cors({
     credentials: true
 }))
-app.use(session({
-    secret: 'your-secret-key',
-    resave: false,
-    saveUninitialized: true
-}))
+// app.use(session({
+//     secret: 'your-secret-key',
+//     resave: false,
+//     saveUninitialized: true
+// }))
 
 app.use("/auth", authRoutes);
 app.use("/post", postRoutes);

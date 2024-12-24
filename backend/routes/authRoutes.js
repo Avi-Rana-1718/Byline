@@ -9,7 +9,7 @@ router.post("/signup" , async (req, res)=>{
 })
 router.post("/login", async (req, res)=>{
     let response = await authUser(req.body)
-    req.session.auth = response.data;
+    //req.session.auth = response.data;
     console.log(req.session);
     
     res.json(response);

@@ -1,30 +1,30 @@
-const {MongoClient} = require("mongodb");
-const URL = process.env.CONNECTION_URL;
+const userModel = require("../models/userModel");
 
 async function createUser(userObj) {
-    let client = new MongoClient(URL);
-    try {
-        await client.connect();
-        let db = client.db("twitter");
-        let collection = db.collection("userData");
-        
-        let accountExists = await collection.findOne({email: userObj.email});
-        
-        if(accountExists==null) {
-            console.log(userObj);
-            
-            collection.insertOne(userObj)
-            //delete userObj.password;
-            return {status: "SUCCESS", data: userObj};
-        } else {
-            return {status: "ERROR", message: "User already exists!"}
-        }
+  try {
+    const accountExists = await userModel.exists({ email: userObj.email });
+    //console.log(accountExists);
 
-    } catch(err) {
-        console.log(err);
+    console.log(await userModel.find());
+    
+
+    if (!accountExists) { // Check if account doesn't exist
+      console.log(userObj);
+  
+      userModel.create(userObj).then(()=>{
+        console.log("added");
+      }).catch(err=>{
+        console.log("err");
+        
+      })
+      return { status: "SUCCESS", data: userObj };
+    } else {
+      return { status: "ERROR", message: "User already exists!" };
     }
-
-    return -1;
+  } catch (err) {
+    console.error(err); // Log the error with `.error` for better visibility
+    throw err; // Re-throw the error to indicate a problem
+  }
 }
 
 module.exports = createUser;

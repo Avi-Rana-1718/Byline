@@ -27,10 +27,7 @@ export default function Auth() {
                     username: e.target[0].value,
                     email: e.target[1].value,
                     password: e.target[2].value,
-                    createdAt: Date.now(),
                     userPfp: "https://i.pinimg.com/736x/b9/c4/7e/b9c47ef70bff06613d397abfce02c6e7.jpg",
-                    userID: Math.floor(Math.random() * (999999999 - 111111111) + 111111111),
-                    posts:[]
                 }
 
                 if(!signUp) {

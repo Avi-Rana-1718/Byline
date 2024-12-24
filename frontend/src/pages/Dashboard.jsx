@@ -30,9 +30,9 @@ export default function Dashboard() {
     return (
         <>
         <Nav />
-        <div className="md:px-[20vw] p-5">
+        <div className="md:px-[20vw] p-5 ">
             <h3 className="text-2xl font-medium mb-4">Dashboard</h3>
-            <div className="flex gap-x-2">
+            <div className="md:flex gap-x-2 gap-y-3">
             <section className="grow bg-[#FCFCFC] text-[#282828] p-4 rounded">
             <h3 className="text-xl underline">Posts</h3>
                 <ul className="mt-3">

@@ -21,13 +21,14 @@ export default function Profile() {
     <>
       <Nav />
       <div className="md:px-[20vw] p-5">
-        <div className="flex">
+        <div className="md:flex">
+          <div className="grow flex">
           <img
-            className="h-[10rem] rounded mr-5"
+            className="h-[8rem] md:h-[10rem] rounded mr-5"
             src={data != null ? data.userPfp : null}
           />
-          <div className="grow">
-            <h2 className="text-3xl font-medium">
+            <div>
+            <h2 className="text-3xl font-medium mt-3">
               {data == null ? "Loading" : data.username}
             </h2>
             <span className="text-sm text-[#888] block">
@@ -51,9 +52,10 @@ export default function Profile() {
                 ? "No posts yet!"
                 : `${data.posts.length} posts.`}
             </small>
+            </div>
           </div>
           <div>
-          <div className={`border-[#583d85] whitespace-nowrap text-sm cursor-pointer block hover:underlne hover:bg-[#583d85] border-2 rounded-full px-2 py-1 ${localStorage.getItem("user")?JSON.parse(localStorage.getItem("user")).userID == Number(params.id) ? "block":"hidden":"hidden"}`}>
+          <div className={`mt-6 border-[#583d85] whitespace-nowrap text-sm cursor-pointer inline-block hover:underline hover:bg-[#583d85] border-2 rounded-full px-2 py-1 ${localStorage.getItem("user")?JSON.parse(localStorage.getItem("user")).userID == Number(params.id) ? "block":"hidden":"hidden"}`}>
             <Link to="/setting">
             Edit profile
             </Link>

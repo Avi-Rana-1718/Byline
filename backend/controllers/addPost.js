@@ -1,8 +1,9 @@
-const {MongoClient, ObjectId} = require("mongodb");
+const mongoose = require("mongoose")
 const URL = process.env.CONNECTION_URL;
 
 async function addPost(postObj) {
     try {
+        await mongoose.connect(URL);
         let client = new MongoClient(URL);
         let db = client.db("twitter");
         let postCollection = db.collection("postData");

@@ -6,7 +6,7 @@ async function addPost(postObj) {
 
         let postAdded = await postModel.create(postObj);        
 
-        let userUpdated = await userModel.updateOne({userID: Number(postObj.authorID)}, {$push: {posts: Number(postObj.postID)}})
+        let userUpdated = await userModel.updateOne({userID: Number(postObj.authorID)}, {$push: {posts: Number(postAdded.postID)}})
         console.log(userUpdated);
         console.log(postAdded)
         

@@ -1,15 +1,9 @@
-const {MongoClient, ObjectId} = require("mongodb");
-const URL = process.env.CONNECTION_URL;
+const userModel = require("../models/userModel")
 
 async function deleteUser(id) {
     try {
-        let client = new MongoClient(URL);
-        await client.connect();
-        let db = client.db("twitter");
-        let collection = db.collection("userData");
-        console.log(id);
-        
-        let accountExists = await collection.deleteOne({userID: Number(id)});
+    
+        let accountExists = await userModel.deleteOne({userID: Number(id)});
 
         console.log(accountExists);
         

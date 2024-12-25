@@ -32,10 +32,7 @@ export default function New() {
                 authorID: Number(JSON.parse(localStorage.getItem("user")).userID),
                 title: e.target[0].value,
                 byline: e.target[1].value,
-                content: e.target[2].value,
-                postedAt: Date.now(),
-                postID: Math.floor(Math.random() * (999999999 - 111111111) + 111111111),
-                comments: []
+                content: e.target[2].value
             }
 
             fetch("http://localhost:3030/post/add", {

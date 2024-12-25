@@ -16,7 +16,7 @@ export default function Nav() {
             {isLoggedIn?(
                 <div>
                 <span className="mr-2">
-                    <Dropdown title={JSON.parse(isLoggedIn).username} list={[{title:"Profile", href:`/user/${JSON.parse(localStorage.getItem("user")).userID}`}, {title:"Dashboard", href:"/dashboard"} ,{title:"Setting", href:"/setting"}]}/>
+                    <Dropdown title={JSON.parse(isLoggedIn).username} list={[{title:"Profile", href:`/user/${JSON.parse(localStorage.getItem("user")).userID}`},{title:"Setting", href:"/setting"}]}/>
                 </span>
                 <button
                 className="bg-[#EAE7EF]  text-[#2C0D62] px-2 py-1 rounded hover:underline">

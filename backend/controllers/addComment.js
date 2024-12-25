@@ -1,20 +1,13 @@
-const {MongoClient } = require("mongodb");
-const URL = process.env.CONNECTION_URL;
+const commentModel = require("../models/commentModel");
+const postModel = require("../models/postModel");
 
 async function addComment(commentObj) {
-    console.log(commentObj);
-    
     try {
-        let client = new MongoClient(URL);
-        let db = client.db("twitter");
-        let postCollection = db.collection("postData");
-        let commentCollection = db.collection("commentData");
 
-        let postUpdated = await postCollection.updateOne({postID: Number(commentObj.postID)}, {$push: {comments: commentObj}});
-        console.log(postUpdated);
+        let postUpdated = await postModel.updateOne({postID: Number(commentObj.postID)}, {$push: {comments: commentObj}});
         
         if(postUpdated!=null) {
-            let commentAdd = await commentCollection.insertOne(commentObj)
+            let commentAdd = await commentModel.create(commentObj)
             console.log(commentAdd);
             
            return {status: "SUCCESS"};

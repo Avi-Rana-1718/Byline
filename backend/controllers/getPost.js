@@ -1,13 +1,8 @@
-const {MongoClient, ObjectId} = require("mongodb");
-const URL = process.env.CONNECTION_URL;
+const postModel = require("../models/postModel")
 
 async function getPost(id) {
     try {
-        let client = new MongoClient(URL);
-        let db = client.db("twitter");
-        let collection = db.collection("postData");
-
-        let postExist = await collection.findOne({postID: Number(id)});
+        let postExist = await postModel.findOne({postID: Number(id)});
         if(postExist==null) {
             return {status: "ERROR", message: "Post not found!"};
         } else {

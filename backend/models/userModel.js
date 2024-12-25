@@ -36,4 +36,4 @@ let userSchema = new mongoose.Schema({
     posts: []
 })
 
-module.exports = mongoose.model("userData", userSchema)
+module.exports = mongoose.model("User", userSchema)

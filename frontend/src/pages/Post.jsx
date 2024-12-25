@@ -16,9 +16,7 @@ export default function Post() {
     let commentObj = {
       postID: params.id,
       comment: commentRef.current.value,
-      authorID: JSON.parse(localStorage.getItem("user")).userID,
-      commentID: Math.floor(Math.random() * (999999999 - 111111111) + 111111111),
-      postedAt: Date.now()
+      authorID: JSON.parse(localStorage.getItem("user")).userID
     }
 
     fetch("http://localhost:3030/post/comment/add", {
